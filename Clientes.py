@@ -28,3 +28,31 @@ class CClientes:
 
         except mysql.connector.Error as error:
             print("Error al ingresar datos {}".format(error))
+    
+    def modificarClientes(idUsuario,nombres,apellidos,sexo):
+        try:
+            cone= CConexion.conexionBaseDeDatos()
+            cursor=cone.cursor
+            sql="UPDATE usuarios SET usuarios.nombres = %s, usuarios.apellidos = %s, usuarios.sexo = %sWhere usuarios.id = %s;"
+            valores=(nombres,apellidos,sexo, idUsuario)
+            cursor.execute(sql,valores)
+            cone.commit()
+            print(cursor.rowcount,"Registro Actualizado")
+            cone.close()
+
+        except mysql.connector.Error as error:
+            print("Error al actualizar datos {}".format(error))
+    
+    def eliminarClientes(idUsuario):
+        try:
+            cone= CConexion.conexionBaseDeDatos()
+            cursor=cone.cursor
+            sql="DELETE from usuarios WHERE usuarios.id= %s"
+            valores=(idUsuario,)
+            cursor.execute(sql,valores)
+            cone.commit()
+            print(cursor.rowcount,"Registro Eliminado")
+            cone.close()
+
+        except mysql.connector.Error as error:
+            print("Error al eliminar datos {}".format(error))
