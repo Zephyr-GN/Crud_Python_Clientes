@@ -21,7 +21,7 @@ Este proyecto es una aplicación de escritorio construida con **Python**, usando
 ## 📁 Estructura del proyecto
 ```bash
 📦 crud-clientes/
-├── main.py # Código principal de la interfaz
+├── pythonMySql.py # Código principal de la interfaz
 ├── Clientes.py # Contiene la clase CClientes con lógica de base de datos
 ├── Conexion.py # Módulo para conexión a la base de datos MyS
 ```
